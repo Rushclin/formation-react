@@ -1,15 +1,6 @@
 import { ProduitType } from "@/types/produits";
 
-export const produits: ProduitType[] = [
-  {
-    id: 0,
-    description: "",
-    image: "",
-    nom: "",
-    prix: 0,
-    tva: 0,
-  },
-
+export const produitDatas: ProduitType[] = [
   {
     image: "/jacket-1.jpg",
     nom: "Jacket",

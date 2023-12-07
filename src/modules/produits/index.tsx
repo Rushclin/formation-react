@@ -1,9 +1,13 @@
 import ProductCard from "@/components/ProductCard/ProductCard";
-import { produits } from "@/data/produits";
 import React from "react";
 import FiltresProduit from "./components/filtres";
+import { useProduitApi } from "./api";
 
 const ProduitModule = () => {
+  const produits = useProduitApi().useSelecAllQuery({});
+
+  const { isLoading, data } = produits;
+
   return (
     <>
       <div className="container">
@@ -46,13 +50,18 @@ const ProduitModule = () => {
             </div>
 
             <div className="mt-4 lg:mt-8 ">
-            {/* <div className="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8"> */}
               <FiltresProduit />
 
               <div className="mt-10 grid grid-cols-1 place-items-center sm:place-items-start sm:grid-cols-2 lg:grid-col-3 xl:grid-cols-4 gap-10 xl:gap-x-20 xl:gap-y-10">
-                {produits.map((item, index) => (
-                  <ProductCard key={index} produit={item} />
-                ))}
+                {isLoading || !data ? (
+                  <>
+                    <h1>Chargement des produits en cours...</h1>
+                  </>
+                ) : (
+                  data.map((item, index) => (
+                    <ProductCard key={index} produit={item} />
+                  ))
+                )}
               </div>
             </div>
           </div>

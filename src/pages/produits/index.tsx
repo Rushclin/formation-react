@@ -1,12 +1,13 @@
 import RootLayout from "@/layout/RootLayout";
+import ProduitModule from "@/modules/produits";
 import React from "react";
 
-const Index = () => {
+const Produits = () => {
   return (
     <RootLayout>
-      <div>Loading ...</div>
+      <ProduitModule />
     </RootLayout>
   );
 };
 
-export default Index;
+export default Produits;

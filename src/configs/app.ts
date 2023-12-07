@@ -11,12 +11,13 @@ export const app = {
   themeColor: "#333e51" as const,
   supportedLngs: ["en", "fr"] as const,
   currency: "XAF",
+  baseURL: 'http://localhost:3000',
 
   homeLinks: [
     {
       id: 0, 
       title: "Acceuil", 
-      lien: "/"
+      lien: "/home"
     },
     {
       id: 1, 
