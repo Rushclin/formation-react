@@ -5,8 +5,14 @@ interface Props {
   action: () => void;
 }
 
+interface PropsIconButton {
+  title?: string;
+  action: () => void;
+  icon: React.ReactNode;
+  nombre?: number;
+}
+
 const Button: React.FC<Props> = (props) => {
-  
   const { action, title } = props;
 
   return (
@@ -23,4 +29,39 @@ const Button: React.FC<Props> = (props) => {
   );
 };
 
-export {Button}
+const IconButton: React.FC<PropsIconButton> = (props) => {
+  const { action, icon, title, nombre } = props;
+  return (
+    <button
+      className="relative w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-500 focus:ring-yellow-600 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-600"
+      onClick={action}
+    >
+      {icon ? (
+        icon
+      ) : (
+        <svg
+          className="h-5 w-5 rtl:rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      )}
+
+      {nombre && (
+        <span className="absolute top-0 right-0 block w-5 h-5 bg-red-500 border-1 border-white rounded-full text-center text-white text-xs font-bold">
+          {nombre}
+        </span>
+      )}
+    </button>
+  );
+};
+
+export { Button, IconButton };

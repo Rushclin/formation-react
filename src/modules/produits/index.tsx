@@ -45,7 +45,8 @@ const ProduitModule = () => {
               </button>
             </div>
 
-            <div className="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8">
+            <div className="mt-4 lg:mt-8 ">
+            {/* <div className="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8"> */}
               <FiltresProduit />
 
               <div className="mt-10 grid grid-cols-1 place-items-center sm:place-items-start sm:grid-cols-2 lg:grid-col-3 xl:grid-cols-4 gap-10 xl:gap-x-20 xl:gap-y-10">

@@ -1,3 +1,5 @@
+import { BiHome, BiListUl, BiUser } from "react-icons/bi";
+
 export const app = {
   id: "e-commerce" as const,
   shortName: "Site de E-Commerce" as const,
@@ -8,7 +10,7 @@ export const app = {
   keywords: "#ecommerce #rushclin #takam" as const,
   themeColor: "#333e51" as const,
   supportedLngs: ["en", "fr"] as const,
-  currency: "EUR",
+  currency: "XAF",
 
   homeLinks: [
     {
@@ -69,5 +71,30 @@ export const app = {
       mainTitle: "Nouveautes",
       price: "3000 Fr",
     },
+    {
+      id: 3,
+      img: "/banner-3.jpg",
+      title: "Meilleure offre",
+      mainTitle: "Nouveautes",
+      price: "3000 Fr",
+    },
+  ] as const,
+
+  mobNavMenu : [
+    {
+      id: 0, 
+      icon: BiHome, 
+      lien: "/"
+    },
+    {
+      id: 1, 
+      icon: BiUser , 
+      lien: "/"
+    },
+    {
+      id: 2,
+      icon: BiListUl,
+      lien: '/produits' 
+    }
   ] as const
 };

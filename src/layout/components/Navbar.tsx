@@ -16,7 +16,7 @@ const Navbar = () => {
               <nav aria-label="Global">
                 <ul className="flex items-center gap-6">
                   {app.homeLinks.map((link) => (
-                    <Button action={() => {router.push(link.lien)}} title={link.title}/>
+                    <Button action={() => {router.push(link.lien)}} title={link.title} key={link.id}/>
                   ))}
                 </ul>
               </nav>
