@@ -3,7 +3,7 @@ import React from "react";
 const LoginModule = () => {
   return (
     <section className="bg-white">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+      {/* <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
           <img
             alt="Pattern"
@@ -168,7 +168,7 @@ const LoginModule = () => {
             </form>
           </div>
         </main>
-      </div>
+      </div> */}
     </section>
   );
 };
