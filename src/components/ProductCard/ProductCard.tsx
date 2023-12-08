@@ -1,6 +1,8 @@
 import { ProduitType } from "@/types/produits";
 import React from "react";
 import {Button} from "../Buttons/Buttons";
+import {useDispatch} from 'react-redux'
+import { addItemToCart } from "@/modules/panier/api";
 
 interface Props {
   produit: ProduitType;
@@ -9,6 +11,13 @@ interface Props {
 const ProductCard: React.FC<Props> = (props) => {
   const { produit } = props;
   const { description, id, image, nom, prix, tva } = produit;
+
+  const dispatch = useDispatch()
+
+  const handlerAddProduitPanier = () => {
+    dispatch(addItemToCart({produit, quantite: 1}))
+  }
+
 
   return (
     <>
@@ -44,7 +53,7 @@ const ProductCard: React.FC<Props> = (props) => {
 
           <p className="mt-1.5 text-sm text-gray-700">{prix} Fr</p>
 
-          <Button action={() => {}} title="Ajouter au panier"/>
+          <Button action={() => {handlerAddProduitPanier()}} title="Ajouter au panier"/>
         </div>
       </div>
     </>

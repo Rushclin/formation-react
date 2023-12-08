@@ -3,6 +3,7 @@ import React from "react";
 interface Props {
   title?: string;
   action: () => void;
+  disabled?: boolean
 }
 
 interface PropsIconButton {
@@ -13,12 +14,13 @@ interface PropsIconButton {
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { action, title } = props;
+  const { action, title, disabled } = props;
 
   return (
     <button
       className="mt-4 group relative inline-block focus:outline-none focus:ring w-full"
       onClick={action}
+      disabled = {disabled}
     >
       <span className="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"></span>
 

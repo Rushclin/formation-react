@@ -1,10 +1,18 @@
 import React from "react";
 import Logo from "../../components/Logo/Logo";
 import { useRouter } from "next/router";
+import { RootState } from "@/configs/store";
+import { useSelector } from "react-redux";
 
 const HeaderMain = () => {
+  const router = useRouter();
 
-  const router = useRouter()
+  const panier = useSelector((state: RootState) => state.panier);
+  const quantiteTotale = panier.produits.reduce(
+    (total, produit) => total + produit.quantite,
+    0
+  );
+
   return (
     <div className="border-b border-gray-200 py-6">
       <div className="container sm:flex justify-between items-center">
@@ -47,14 +55,17 @@ const HeaderMain = () => {
         </div>
 
         <div className="hidden lg:flex">
-            <button className="group relative inline-block focus:outline-none focus:ring mx-1" onClick={() => router.push('panier')}>
-              <span className="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"></span>
+          <button
+            className="group relative inline-block focus:outline-none focus:ring mx-1"
+            onClick={() => router.push("panier")}
+          >
+            <span className="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"></span>
 
-              <span className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">
-                Panier (2)
-              </span>
-            </button>
-          </div>
+            <span className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">
+              Panier ({quantiteTotale})
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

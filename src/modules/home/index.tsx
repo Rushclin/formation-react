@@ -17,9 +17,11 @@ const HomeModule = () => {
         </>
       ) : (
         <div className="container">
-          <h2 className="font-medium text-2xl pb-4">
-            Nos produits en promotion
-          </h2>
+          <header className="text-center">
+              <h1 className="text-xl font-bold text-gray-900 sm:text-3xl my-16">
+                Nos produits phares
+              </h1>
+            </header>
           <div className="grid grid-cols-1 place-items-center sm:place-items-start sm:grid-cols-2 lg:grid-col-3 xl:grid-cols-4 gap-10 xl:gap-x-20 xl:gap-y-10">
             {data.map((produit) => (
               <ProductCard produit={produit} key={produit.id} />
